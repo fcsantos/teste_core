@@ -1,0 +1,21 @@
+﻿@model SummaryClinicalDetailViewModel
+
+<form asp-action="CreateMessage" asp-controller="Messages" id="form-id-message">
+    <div class="card-body col-md-12">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @Html.HiddenFor(model => model.Message.PatientId)
+        <div class="form-group form-check">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="Message.IsReply" /> @Html.DisplayNameFor(model => model.Message.IsReply)
+            </label>
+        </div>
+        <div class="form-group">
+            <label asp-for="Message.Text" class="control-label"></label>
+            <textarea asp-for="Message.Text" class="form-control" rows="3"></textarea>
+            <span asp-validation-for="Message.Text" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="card-footer">
+        <partial name="../Shared/Components/Toolbars/_BtnSaveCancelSummaryClinical.cshtml" />
+    </div>
+</form>

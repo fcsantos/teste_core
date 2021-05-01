@@ -1,0 +1,79 @@
+﻿@model Core.Web.Models.NoticeViewModel
+
+@{
+    ViewData["Title"] = Localizer["Editar Aviso"];
+    Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+}
+@*CSS to Hide Select2 option selected*@
+<style>
+    li[aria-selected=true] {
+        display: none !important;
+    }
+
+    .select2-drop-active {
+        margin-top: -25px;
+    }
+</style>
+
+<hr />
+<div class="card card-default">
+    <form asp-action="EditPost" autocomplete="off" id="form-id">
+        <div class="card-body col-md-6">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.IsActive)
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control" rows="4" maxlength="200"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="row">
+
+                <div class="form-group col-6">
+                    <label asp-for="StartDate"></label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                        </div>
+                        <input asp-for="StartDate" type="text" class="form-control date-mask" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" spellcheck="false">
+                    </div>
+                    <span asp-validation-for="StartDate" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-6">
+                    <label asp-for="EndDate"></label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                        </div>
+                        <input asp-for="EndDate" type="text" class="form-control date-mask" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" spellcheck="false">
+                    </div>
+                    <span asp-validation-for="EndDate" class="text-danger"></span>
+                </div>
+
+            </div>
+            <div class="form-group form-check">
+                <div class="custom-control custom-switch">
+                    <input id="chkSendAll" type="checkbox" asp-for="SendToAllUsers" class="custom-control-input">
+                    <label class="custom-control-label" for="chkSendAll">@Html.DisplayNameFor(model => model.SendToAllUsers)</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ListOfPatients" class="control-label"> @Html.DisplayNameFor(model => model.ListOfPatients)</label>
+                <select id="select2" asp-for="NoticeUsers" class="form-control" multiple="multiple" style="width: 100%;">
+                    <option value=""></option>
+                </select>
+                <span asp-validation-for="ListOfPatients" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="card-footer">
+            <partial name="../Shared/Components/Toolbars/_BtnSaveCancel.cshtml" />
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("../Shared/Components/Notices/_Select2"); }
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,10 @@
+﻿@model QuestionViewModel
+@if (Model.AnswerOptions != null)
+{
+    @foreach (var i in Model.AnswerOptions)
+    {
+        <div class="form-group col-8">
+            <textarea class="form-control" id="@i.Id" name="Q|@Model.Id|@i.Id" placeholder="@Model.Placeholder" rows="3"></textarea>
+        </div>
+    }
+}

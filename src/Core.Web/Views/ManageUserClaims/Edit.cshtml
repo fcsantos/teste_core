@@ -1,0 +1,70 @@
+﻿@model ControllerActionsViewModel
+@{
+    ViewData["Title"] = ViewBag.EditUserClaims;
+    Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+}
+
+<hr />
+<div class="row">
+    <div class="col-6">
+        <div class="card card-default">
+            <form asp-action="Create" id="form-id">
+                <div class="card-body col-md-6">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    @Html.HiddenFor(model => model.UserId)
+
+                    <div class="form-group">
+                        <label asp-for="ControllerName" class="control-label"></label>
+                        @Html.HiddenFor(x => x.ControllerName)
+                        <select id="ControllerList" class="form-control" asp-for="Id" asp-items="ViewBag.SelectListControllers">
+                            <option value="">-- Selecione Controller Name --</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ActionName" class="control-label"></label>
+                        <select id="ActionList" class="form-control" asp-for="ActionName">
+                            <option value="">-- Selecione Action Name --</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <partial name="../Shared/Components/Toolbars/_BtnSaveCancel.cshtml" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-6">
+
+        @*<div class="row float-xl-right" style="padding-bottom:15px;">
+            <button class="btn btn-warning">Reset This User Claims</button>
+        </div>*@
+        <form asp-action="Delete">
+            <table id="table" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>@Localizer["Controller"]</th>
+                        <th>@Localizer["Ação"]</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var claim in Model.ListOfClaims)
+                    {
+                        <tr>
+                            <td>@claim.ClaimType</td>
+                            <td>@claim.ClaimValue</td>
+                            <td>
+                                <button id="Delete" value="ManageUserClaims" name="@claim.Id" class="btn bg-danger" type="button" data-toggle="tooltip" data-placement="right" title="@Localizer["Deletar"]"><i class="far fa-minus-square"></i></button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+
+@section Scripts
+{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

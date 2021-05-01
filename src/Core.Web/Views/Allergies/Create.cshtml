@@ -1,0 +1,40 @@
+﻿@model SummaryClinicalDetailViewModel
+
+<form asp-action="Create" asp-controller="Allergies" id="form-id-allergy">
+    <div class="card-body col-md-12">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @Html.HiddenFor(model => model.Allergy.PatientId)
+        <input type="hidden" asp-for="Facilitator.TypeClinicalSummary" value="Allergy">
+        <div class="form-group">
+            <label asp-for="Allergy.ClinicalSummaryFacilitator" class="control-label"></label>
+            <select class="form-control" asp-for="Allergy.ClinicalSummaryFacilitator" asp-items="ViewBag.SelectListFacilitatorAllergy">
+                <option value="">-- @LocalizerGeneral["Selecione"] --</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <div class="custom-control custom-switch">
+                <input type="checkbox" asp-for="IsNewFacilitator" class="custom-control-input" id="isnewfacilitator-allergy">
+                <label class="custom-control-label" for="isnewfacilitator-allergy">@Localizer["Você quer guardar as informacoes como facilitador de preenchimento?"]</label>
+            </div>
+        </div>
+        <div id="facilitator-pathology-allergy" class="form-group">
+            <label asp-for="Facilitator.PathologyId" class="control-label"></label>
+            <select class="form-control" asp-for="Facilitator.PathologyId" asp-items="ViewBag.SelectListPathologies">
+                <option value="">-- @LocalizerGeneral["Selecione"] --</option>
+            </select>
+        </div>
+        <div id="facilitator-name-allergy" class="form-group">
+            <label asp-for="Facilitator.Name" class="control-label"></label>
+            <input asp-for="Facilitator.Name" class="form-control" />
+            <span asp-validation-for="Facilitator.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Allergy.Description" class="control-label"></label>
+            <textarea asp-for="Allergy.Description" class="form-control" rows="3"></textarea>
+            <span asp-validation-for="Allergy.Description" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="card-footer">
+        <partial name="../Shared/Components/Toolbars/_BtnSaveCancelSummaryClinical.cshtml" />
+    </div>
+</form>

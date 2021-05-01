@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             Title="Plano de Cuidados"
+             x:Class="ProjetoMRP.Paciente.View.PlanoCuidados">
+    
+    <ContentPage.Content>
+
+        <!--<Button Text="Plano de cuidados" x:Name="btnPlanoCuidados" Clicked="btnPlanoCuidados_Clicked" HorizontalOptions="Start" VerticalOptions="Center"></Button>-->
+        <ListView x:Name="lst" Margin="15,0,0,0" HasUnevenRows = "true">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell Tapped="ViewCell_Tapped" x:Name="vcPlanoCuidados">
+                        <StackLayout>
+                            <!--<TextCell Text="{Binding DataCriacao,StringFormat='{0:dd/MM/yyyy HH:mm}'}" Detail="{Binding Descricao}"></TextCell>-->
+                            <!--<TextCell Text="{Binding DataMedico}" Detail="{Binding Descricao}"></TextCell>-->
+                            <!--<TextCell Text="Título do plano - Última At. 01/03/2021" TextColor="Black" 
+                                  Detail="{Binding Medico}" ></TextCell>-->
+                            <Label Margin="0,25,0,0" Text="Título do plano - 01/03/2021" FontSize="Large" FontAttributes="Bold" TextColor="Black"></Label>
+                            <Label Text="{Binding Medico}" FontSize="Medium" TextColor="CadetBlue"></Label>
+                            <Label Text="{Binding Descricao}" FontSize="Body"></Label>
+
+
+                    </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,37 @@
+﻿<li class="nav-item">
+    <a class="nav-link @Url.ActiveClass("Dashboard","Index")" asp-area="" asp-controller="Dashboard" asp-action="Index">
+        <i class=" nav-icon fas fas fa-home"></i>
+        <p>@LocalizerGeneral["Home"]</p>
+    </a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link @Url.ActiveClass("Patients","Index")" asp-area="" asp-controller="Patients" asp-action="Index">
+        <i class=" nav-icon fas fa-hospital-user"></i>
+        <p>@LocalizerGeneral["Pacientes"]</p>
+    </a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link @Url.ActiveClass("Messages","Index")" asp-area="" asp-controller="Messages" asp-action="Index">
+        <i class=" nav-icon fas fa-comments"></i>
+        <p>@LocalizerGeneral["Mensagens"]</p>
+    </a>
+</li>
+
+<li class="nav-item has-treeview">
+    <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-users-cog"></i>
+        <p>@LocalizerGeneral["Configurações"]</p>
+        <i class="right fas fa-angle-left"></i>
+
+    </a>
+    <ul class="nav nav-treeview">
+        <li class="nav-item">
+            <a class="nav-link @Url.ActiveClass("Pathologies","Index")" asp-area="" asp-controller="Pathologies" asp-action="Index">
+                <i class=" nav-icon fas fa-first-aid"></i>
+                <p>@LocalizerGeneral["Patologias"]</p>
+            </a>
+        </li>
+    </ul>
+</li>

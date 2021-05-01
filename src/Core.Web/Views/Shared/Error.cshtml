@@ -1,0 +1,78 @@
+﻿@model Core.Web.Models.ErrorViewModel
+@{
+    ViewData["Title"] = @Model.Title;
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+<div class="container">
+    <div style=" padding-top: 220px; text-align: center;">
+        @{
+            string color = string.Empty;
+            string icon = string.Empty;
+
+            if (Model == null)
+            {
+                color = "warning";
+                icon = "fa-question fa-3x";
+
+
+                <div class="error-page">
+                    <h1 class="headline text-@color" style="padding-top:50px">@Model.ErroCode</h1>
+                    <div class="error-content">
+                        <i class="fas @icon text-@color" style="padding-bottom:15px"></i>
+
+                        <h4>@LocalizerGeneral["Ooops! Ocorreu um erro, mas não se preocupe."]</h4>
+                        <h3>@LocalizerGeneral["A nossa equipa será avisada e iremos corrigir em breve!"]</h3>
+                        <p>@LocalizerGeneral["Contacte o nosso suporte."]</p>
+
+                        <button class="btn btn-light" onclick="goBack()"><i class="fas fa-caret-left"></i>  @LocalizerGeneral["Voltar"]  </button>
+
+                    </div>
+                </div>
+
+            }
+            else
+            {
+                if (Model.ErroCode == 404)
+                {
+                    color = "warning";
+                    icon = "fa-exclamation-triangle fa-3x";
+
+                }
+                else
+                {
+                    if (Model.ErroCode == 500)
+                    {
+                        color = "danger";
+                        icon = "fa-exclamation-triangle fa-3x";
+                    }
+                    else
+                    {
+                        color = "danger";
+                        icon = "fa-ban fa-4x";
+                    }
+
+                }
+
+                <div class="error-page">
+                    <h1 class="headline text-@color" style="padding-top:50px">@Model.ErroCode</h1>
+                    <div class="error-content">
+                        <i class="fas @icon fa-3x text-@color" style="padding-bottom:15px"></i>
+
+                        <h4>@Html.Raw(Model.Title)</h4>
+                        <h3>@Html.Raw(Model.Message)</h3>
+                        <p>@LocalizerGeneral["Contacte o nosso suporte."]</p>
+
+                        <button class="btn btn-light" onclick="goBack()"><i class="fas fa-caret-left"></i>  @LocalizerGeneral["Voltar"]  </button>
+
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>

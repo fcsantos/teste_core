@@ -1,0 +1,22 @@
+﻿@model SummaryClinicalDetailViewModel
+
+<form asp-action="Create" asp-controller="CarePlans" id="form-id-careplans">
+    <div class="card-body col-md-12">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @Html.HiddenFor(model => model.CarePlan.PatientId)
+        @Html.HiddenFor(model => model.CloneId, new { @id = "cloneId_careplan" })
+        <div class="form-group">
+            <label asp-for="CarePlan.Title" class="control-label"></label>
+            <input asp-for="CarePlan.Title" class="form-control" />
+            <span asp-validation-for="CarePlan.Title" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CarePlan.Description" class="control-label"></label>
+            <textarea asp-for="CarePlan.Description" class="form-control" rows="3"></textarea>
+            <span asp-validation-for="CarePlan.Description" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="card-footer">
+        <partial name="../Shared/Components/Toolbars/_BtnSaveCancelSummaryClinical.cshtml" />
+    </div>
+</form>

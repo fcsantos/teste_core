@@ -1,0 +1,45 @@
+﻿<form asp-controller="Messages" asp-action="ReplyMessage" class="col-md-12" autocomplete="off">
+    <input type="hidden" id="ReplyMessageId" name="ReplyMessageId" />
+    <input type="hidden" id="DoctorId" name="DoctorId" />
+    <input type="hidden" id="IsReply" name="IsReply" />
+    <input type="hidden" id="Id" name="Id" />
+    <input type="hidden" id="PatientId" name="PatientId" />
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">@Localizer["Enviada por"]: <span id="doctorName"></span></h5>
+            <span class="mailbox-read-time float-right" id="messageDate"></span>
+        </div>
+        <div class="card-body">
+            <div class="form-group" style="overflow: auto; max-height: 180px;">
+                <span id="mensagemTexto" style="white-space: pre;"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row"></div>
+    <div class="card msgAnswered">
+        <div class="card-header">
+            <h5 class="card-title">@Localizer["Respondida por"]: <span id="patientName"></span></h5>
+            <span class="mailbox-read-time float-right" id="replyDate"></span>
+        </div>
+        <div class="card-body">
+            <div class="form-group" style="overflow: auto; max-height: 180px;">
+                <span id="mensagemTextoPaciente" style="white-space: pre;"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row msgHidden">
+        <div class="col-12 text-center">@Localizer["Atenção! Você deve responder esta mensagem!"]</div>
+    </div>
+    <div class="form-group msgHidden">
+        <textarea id="text" name="text" class="form-control border-danger" rows="6"></textarea>
+    </div>
+    <div class="form-group msgHidden">
+        <div class="row" style="max-width: 500px;">
+            <div class="col-sm-2"><input type="submit" value="@LocalizerGeneral["Guardar"]" class="btn btn-primary" /></div>
+            <div class="col-sm-2"><a class="btn btn-link" data-dismiss="modal">@LocalizerGeneral["Voltar"]</a></div>
+        </div>
+    </div>
+    <div class="form-group card-reply">
+        <div class="col-12 "><a class="btn btn-default btn-link" data-dismiss="modal">@LocalizerGeneral["Voltar"]</a></div>
+    </div>
+</form>

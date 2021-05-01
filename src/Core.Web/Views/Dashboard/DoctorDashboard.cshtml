@@ -1,0 +1,131 @@
+﻿<div class="row">
+    <div class="col-lg-3 col-6">
+        <div class="small-box bg-info">
+            <div class="inner">
+                <h3>@ViewBag.ActiveInquiries</h3>
+                <p>@LocalizerGeneral["Inqueritos Ativos"]</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-bag"></i>
+            </div>
+            <a asp-controller="Inquiries" asp-action="Index" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-6">
+        <div class="small-box bg-success">
+            <div class="inner">
+                <h3>@ViewBag.ActivePatients</h3>
+                <p>@LocalizerGeneral["Pacientes Ativos"]</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-person-add"></i>
+            </div>
+            <a asp-controller="Patients" asp-action="Index" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-6">
+        <div class="small-box bg-warning">
+            <div class="inner">
+                <h3>@ViewBag.ConsultantByDoctorId</h3>
+                <p>@LocalizerGeneral["Consultas Criadas"]</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+            </div>
+            <a asp-controller="Patients" asp-action="Index" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-6">
+        <div class="small-box bg-danger">
+            <div class="inner">
+                <h3>@ViewBag.DiagnosticByDoctorId</h3>
+                <p>@LocalizerGeneral["Diagnósticos Ativos"]</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+            </div>
+            <a asp-controller="Patients" asp-action="Index" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header border-0">
+                <h3 class="card-title">Ultimos <b>Inquéritos</b> Respondidos</h3>
+                <a asp-controller="Patients" asp-action="index" class="btn btn-primary float-md-right"> @Localizer["Ver todas"] <i class="fa fa-calendar-check"></i></a>
+            </div>
+            <div class="card-body p-0">
+                @if (((IEnumerable<InquiryScheduleViewModel>)ViewBag.InqueriesAnswered).Any())
+                {
+                    <table class="table table-striped table-valign-middle">
+                        <thead>
+                            <tr>
+                                <th>@Localizer["Patient"]</th>
+                                <th>@Localizer["Inquérito"]</th>
+                                <th>@Localizer["Data"]</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var inquiry in (IEnumerable<InquiryScheduleViewModel>)ViewBag.InqueriesAnswered)
+                            {
+                            <tr>
+                                <td width="40%">@inquiry.PatientName</td>
+                                <td width="30%">@inquiry.InquiryTitle</td>
+                                <td width="25%">@inquiry.UpdatedDate</td>
+                                <td width="5%">
+                                    <a class="text-muted" asp-controller="SummaryClinicalDetail" asp-action="Index" asp-route-id="@inquiry.PatientId"><i class="fas fa-search"></i></a>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <p>@Localizer["Não existe Inquérito Respondido."]</p>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-header border-0">
+                <h3 class="card-title">Ultimas <b>Mensagens</b> Respondidas</h3>
+                <a asp-controller="Messages" asp-action="index" class="btn btn-primary float-md-right"> @Localizer["Ver todas"] <i class="fa fa-comments"></i></a>
+            </div>
+            <div class="card-body p-0">
+                @if (((IEnumerable<MessageViewModel>)ViewBag.MessagesAnswered).Any())
+                {
+                    <table class="table table-striped table-valign-middle">
+                        <thead>
+                            <tr>
+                                <th>@Localizer["Patient"]</th>
+                                <th>@Localizer["Data"]</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var message in (IEnumerable<MessageViewModel>)ViewBag.MessagesAnswered)
+                            {
+                                <tr>
+                                    <td width="60%">@message.PatientName</td>
+                                    <td width="30%">@message.DateFormat</td>
+                                    <td width="10%">
+                                        <a class="text-muted" asp-controller="SummaryClinicalDetail" asp-action="Index" asp-route-id="@message.PatientId"><i class="fas fa-search"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <p>@Localizer["Não existe Mensagem Respondida."]</p>
+                }
+            </div>
+        </div>
+    </div>
+</div>

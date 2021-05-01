@@ -1,0 +1,21 @@
+﻿@using Core.Web
+@using Core.Web.Models
+@using Core.Web.Extensions
+@using AdminLTE.Helpers;
+@using Microsoft.AspNetCore.Builder
+@using Microsoft.AspNetCore.Localization
+@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Mvc.Localization
+@using Core.Web.Resource
+@using Microsoft.Extensions.Localization
+@using Core.Web.Services 
+
+
+@inject IOptions<AppSettings> appSettings
+@inject IStringLocalizer<Resources> LocalizerGeneral
+@inject IViewLocalizer Localizer
+@inject IOptions<RequestLocalizationOptions> LocOptions
+@inject IAspNetUser AppUser
+@inject IMessageService _messageService
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper "*,Core.Web"

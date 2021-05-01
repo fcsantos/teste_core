@@ -1,0 +1,146 @@
+﻿@model PatientViewModel
+
+@{
+    ViewData["Title"] = ViewBag.EditPatientName;
+    Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+}
+
+<hr />
+<div class="card card-default">
+    <form asp-action="EditPost" autocomplete="off" id="form-id">
+        <div class="card-body col-md-6">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.Address.Id)
+            @Html.HiddenFor(model => model.UserId)
+            @Html.HiddenFor(model => model.IsActive)
+            <div class="card card-outline card-default collapsed-card">
+                <div class="card-header">
+                    <h3 class="card-title">@LocalizerGeneral["Dados pessoais"]</h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body" style="display: block;">
+                    <div class="form-group">
+                        <label asp-for="FirstName" class="control-label"></label>
+                        <input asp-for="FirstName" class="form-control" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="LastName" class="control-label"></label>
+                        <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group" style="max-width: 200px;">
+                        <label asp-for="BirthDate"></label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                            </div>
+                            <input asp-for="BirthDate" type="text" class="form-control date-mask" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" spellcheck="false">
+                        </div>
+                        <span asp-validation-for="BirthDate" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group" style="max-width: 200px;">
+                        <label asp-for="Document" class="control-label"></label>
+                        <input asp-for="Document" class="form-control" />
+                        <span asp-validation-for="Document" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="max-width: 200px;">
+                        <label asp-for="DocumentCard" class="control-label"></label>
+                        <input asp-for="DocumentCard" class="form-control" />
+                        <span asp-validation-for="DocumentCard" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="card card-outline card-default collapsed-card">
+                <div class="card-header">
+                    <h3 class="card-title">@LocalizerGeneral["Dados de contacto"]</h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body" style="display: block;">
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label"></label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                            </div>
+                            <input asp-for="Email" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group" style="max-width: 200px;">
+                        <label asp-for="Cell" class="control-label"></label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-mobile" style="width:16px;"></i></span>
+                            </div>
+                            <input asp-for="Cell" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Cell" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="card card-outline card- collapsed-card">
+                <div class="card-header">
+                    <h3 class="card-title">@LocalizerGeneral["Dados da morada"]</h3>
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body" style="display: block;">
+
+                    <div class="form-group">
+                        <label asp-for="Address.Location" class="control-label"></label>
+                        <input asp-for="Address.Location" class="form-control" />
+                        <span asp-validation-for="Address.Location" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="max-width: 100px;">
+                        <label asp-for="Address.Number" class="control-label"></label>
+                        <input asp-for="Address.Number" class="form-control" />
+                        <span asp-validation-for="Address.Number" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="max-width: 200px;">
+                        <label asp-for="Address.PostalCode" class="control-label"></label>
+                        <input asp-for="Address.PostalCode" class="form-control" />
+                        <span asp-validation-for="Address.PostalCode" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Address.District" class="control-label"></label>
+                        <input asp-for="Address.District" class="form-control" />
+                        <span asp-validation-for="Address.District" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Address.City" class="control-label"></label>
+                        <input asp-for="Address.City" class="form-control" />
+                        <span asp-validation-for="Address.City" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Address.State" class="control-label"></label>
+                        <input asp-for="Address.State" class="form-control" autocomplete="off" />
+                        <span asp-validation-for="Address.State" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <partial name="../Shared/Components/Toolbars/_BtnSaveCancel.cshtml" />
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+}
+
+@{
+    if (AppUser.GetUserRole(appSettings.Value.RoleDoctor))
+    {
+        <partial name="~/Views/Dashboard/DoctorDashboard.cshtml" />
+    }
+}

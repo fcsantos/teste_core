@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>47bc72ad-dab8-49c4-b3ba-ed90f7b90be9</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20210322174420_Identity.cs" />
+    <Compile Remove="Migrations\20210322174420_Identity.Designer.cs" />
+    <Compile Remove="Migrations\20210325171529_Initial.cs" />
+    <Compile Remove="Migrations\20210325171529_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210325184121_Initial.cs" />
+    <Compile Remove="Migrations\20210325184121_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210325235702_Initial.cs" />
+    <Compile Remove="Migrations\20210325235702_Initial.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="3.1.1" />
+    <PackageReference Include="AspNetCore.HealthChecks.UI" Version="3.1.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.UI.SqlServer.Storage" Version="3.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Elmah.Io.AspNetCore" Version="3.8.103" />
+    <PackageReference Include="Elmah.Io.AspNetCore.HealthChecks" Version="3.8.103" />
+    <PackageReference Include="Elmah.Io.Extensions.Logging" Version="3.6.62" />
+    <PackageReference Include="IdentityModel" Version="5.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="4.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="4.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.4" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="3.1.4" />
+    <PackageReference Include="Nustache" Version="1.16.0.10" />
+    <PackageReference Include="Serilog.Extensions.Logging.File" Version="2.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Configuration\Logs\" />
+    <Folder Include="Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Business\Core.Business.csproj" />
+    <ProjectReference Include="..\Core.Data\Core.Data.csproj" />
+  </ItemGroup>
+
+
+</Project>

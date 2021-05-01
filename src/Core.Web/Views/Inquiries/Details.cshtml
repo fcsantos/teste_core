@@ -1,0 +1,36 @@
+﻿@model InquiryViewModel
+
+@{
+    ViewData["Title"] = ViewBag.EditInquiryName;
+    Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="col-10 justify-content-center">
+
+        <form asp-action="Create" autocomplete="off">
+            <input type="hidden" value="@Model.Id" name="InquiryId">
+            <input type="hidden" value="@Model.InquiryScheduleId" name="InquiryScheduleId">
+            <div class="card">
+                <strong class="card-header">@Model.Title</strong>
+                <h6 class="card-header mb-2" style="font-style:italic">@Model.Description</h6>
+                <div class="card-header col-12 justify-content-center">
+                    @foreach (var question in Model.Questions)
+                    {
+                        <div class="card">
+                            <div class="card-body">
+                                <label class="display-6">@question.Title</label>
+                                <partial name="../Shared/Components/Inquiries/_GetAnswersForType" model="question" />
+                            </div>
+                        </div>
+                    }
+                <div class="text-center mb-3">                    
+                    <button id="printButton" type="submit" class="btn btn-primary">
+                        <span class="btn-label"><i class="fas fa-file-signature mr-2"></i></span>Responder
+                    </button>
+                </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

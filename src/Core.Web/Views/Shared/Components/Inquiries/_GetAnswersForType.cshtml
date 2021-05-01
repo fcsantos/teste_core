@@ -1,0 +1,27 @@
+﻿@model QuestionViewModel
+@switch (Model.TypeOfAnswer)
+{
+    case "RadioButton":
+        <partial name="../Shared/Components/Inquiries/_TypeBoolean" model="@Model" />
+        break;
+
+    case "InputText":
+        if (true.Equals(Model.SingleLine))
+        {
+            <partial name="../Shared/Components/Inquiries/_TypeInput" model="@Model" />
+        }
+        else
+        {
+            <partial name="../Shared/Components/Inquiries/_TypeTextarea" model="@Model" />
+        }
+        break;
+
+    case "Checkboxes":
+        <partial name="../Shared/Components/Inquiries/_TypeMultiple" model="@Model" />
+        break;
+
+    case "Scale":
+        <partial name=".../Shared/Components/Inquiries/_TypeScale" model="@Model" />
+        break;
+}
+

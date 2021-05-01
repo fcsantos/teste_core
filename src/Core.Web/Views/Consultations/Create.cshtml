@@ -1,0 +1,16 @@
+﻿@model SummaryClinicalDetailViewModel
+
+<form asp-action="Create" asp-controller="Consultations" id="form-id-consultation">
+    <div class="card-body col-md-12">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @Html.HiddenFor(model => model.Consultation.PatientId)
+        <div class="form-group">
+            <label asp-for="Consultation.Description" class="control-label"></label>
+            <textarea asp-for="Consultation.Description" class="form-control" rows="3"></textarea>
+            <span asp-validation-for="Consultation.Description" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="card-footer">
+        <partial name="../Shared/Components/Toolbars/_BtnSaveCancelSummaryClinical.cshtml" />
+    </div>
+</form>

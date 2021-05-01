@@ -1,0 +1,137 @@
+﻿@model DoctorViewModel
+
+@{
+    ViewData["Title"] = ViewBag.EditDoctorName;
+    Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+}
+
+<hr />
+<div class="card card-default">
+    <form asp-action="EditPost" autocomplete="off" id="form-id">
+        <div class="card-body col-md-6">
+            <div class="card card-primary card-outline card-outline-tabs">
+                <div class="card-header bg-white p-0 pt-1 border-bottom-0">
+                    <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="custom-tabs-one-home-tab" data-toggle="pill" href="#custom-tabs-one-home" role="tab" aria-controls="custom-tabs-one-home" aria-selected="true">@Localizer["Médico"]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="custom-tabs-one-specialty-tab" data-toggle="pill" href="#custom-tabs-one-specialty" role="tab" aria-controls="custom-tabs-one-specialty" aria-selected="true">@Localizer["Especialidade"]</a>
+
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-content" id="custom-tabs-one-tabContent">
+                    <div class="tab-pane fade show active" id="custom-tabs-one-home" role="tabpanel" aria-labelledby="custom-tabs-one-home-tab">
+                        <div class="col-md-6">
+                            <div asp-validation-summary="None" class="text-danger"></div>
+                            @Html.HiddenFor(model => model.Id)
+                            @Html.HiddenFor(model => model.UserId)
+                            @Html.HiddenFor(model => model.IsActive)
+                            <div class="form-group">
+                                <label asp-for="Name" class="control-label"></label>
+                                <input asp-for="Name" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group" style="max-width: 200px;">
+                                <label asp-for="BirthDate"></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                    </div>
+                                    <input asp-for="BirthDate" type="text" class="form-control date-mask" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" spellcheck="false">
+                                </div>
+                                <span asp-validation-for="BirthDate" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group" style="max-width: 200px;">
+                                <label asp-for="DocumentCard" class="control-label"></label>
+                                <input asp-for="DocumentCard" class="form-control" data-inputmask='"mask": "999999999"' data-mask />
+                                <span asp-validation-for="DocumentCard" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group" style="max-width: 200px;">
+                                <label asp-for="Cell" class="control-label"></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-mobile" style="width:16px;"></i></span>
+                                    </div>
+                                    <input asp-for="Cell" class="form-control" data-inputmask='"mask": "(+351) 999 999 999"' data-mask />
+                                </div>
+                                <span asp-validation-for="Cell" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="Email"></label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    </div>
+                                    <input asp-for="Email" placeholder="Email" class="form-control" />
+                                </div>
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="custom-tabs-one-specialty" role="tabpanel" aria-labelledby="custom-tabs-one-specialty-tab">
+                        <div id="accordion">
+                            @foreach (var s in Model.SystemSpecialties)
+                            {
+                                @if (s.ParentSpecialtyId == null && s.SubSpecialties.Count() > 0)
+                                {
+                                    <div class="card">
+                                        <div class="card-header" id="headingOne">
+                                            <h5 class="mb-0">
+                                                <label class="btn btn-link" data-toggle="collapse" data-target="#collapse@{@s.Id}" aria-expanded="true" aria-controls="collapse@{@s.Id}">
+                                                    @s.Name
+                                                </label>
+                                            </h5>
+                                        </div>
+                                        <div id="collapse@{@s.Id}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                            <div class="card-body" style="padding-left: 60px;">
+                                                <div class="row">
+                                                    @foreach (var se in s.SubSpecialties)
+                                                    {
+                                                        if (Model.SpecialtyGuids.Contains(se.Id.ToString()))
+                                                        {
+                                                            <div class="col-md-4">
+                                                                <div class="custom-control custom-switch" id="s">
+
+                                                                    <input type="checkbox" checked value="@{@se.Id}" name="SpecialtyGuids" class="custom-control-input" id="customSwitch@{@se.Id}">
+                                                                    <label class="custom-control-label" for="customSwitch@{@se.Id}">@se.Name</label>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                        else
+                                                        {
+                                                            <div class="col-md-4">
+                                                                <div class="custom-control custom-switch" id="s">
+
+                                                                    <input type="checkbox" value="@{@se.Id}" name="SpecialtyGuids" class="custom-control-input" id="customSwitch@{@se.Id}">
+                                                                    <label class="custom-control-label" for="customSwitch@{@se.Id}">@se.Name</label>
+                                                                </div>
+                                                            </div>
+                                                        }
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <partial name="../Shared/Components/Toolbars/_BtnSaveCancel.cshtml" />
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

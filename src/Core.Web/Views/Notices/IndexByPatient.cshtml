@@ -1,0 +1,39 @@
+﻿@model IEnumerable<UserNoticeViewModel>
+
+@{
+    ViewData["Title"] = Localizer["Avisos"];
+    Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+
+<section class="padding-y">
+
+    @if (Model.Any())
+    {
+        <table id="table" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>@Localizer["Data"]</th>
+                    <th>@Localizer["Descrição"]</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var notice in Model)
+                {
+                    <tr>
+                        <td width="20%">@DateTime.Now.ToShortDateString()</td>
+                        <td width="80%">@notice.Description</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>@Localizer["Não existe Aviso cadastrado"]</p>
+    }
+</section>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Inquérito Covid19"
+             x:Class="ProjetoMRP.Paciente.View.InqueritoFormPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <ContentView x:Name="PlaceHolder" IsVisible="false"></ContentView>
+
+            <Entry Placeholder="Informe o Nome" />
+            <Entry Placeholder="Informe o Endereço" />
+
+            <Label Text="Você possui alguma comorbidade?" />
+
+            <Grid Margin="10,0,0,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="70"/>
+                </Grid.ColumnDefinitions>
+
+                <CheckBox Grid.Row="0" Grid.Column="0" Color="Black"/>
+                <Label Text="Diabetes" Grid.Row="0" Grid.Column="1" />
+
+                <CheckBox Grid.Row="1" Grid.Column="0" Color="Black"/>
+                <Label Text="Hipertensão Arterial" Grid.Row="1" Grid.Column="1" />
+
+                <CheckBox Grid.Row="2" Grid.Column="0" Color="Black"/>
+                <Label Text="Cardiopatias" Grid.Row="2" Grid.Column="1" />
+
+                <CheckBox Grid.Row="3" Grid.Column="0" Color="Black"/>
+                <Label Text="Imunodeprimidos " Grid.Row="3" Grid.Column="1" />
+            </Grid>
+
+            <Editor Placeholder="Possui outras Comorbidades?" WidthRequest="400" HeightRequest="50" MaxLength="100" HorizontalOptions="Center" />
+
+            <TableView>
+                <TableRoot>
+                    <TableSection>
+                        <SwitchCell Text="Você possui alguma comorbidade?"  On="False"></SwitchCell>
+                        <SwitchCell Text="Diabetes Mellitus"></SwitchCell>
+                        <SwitchCell Text="Hipertensão Arterial Sistêmica/Pressão Alta"></SwitchCell>
+                        <SwitchCell Text="Cardiopatias"></SwitchCell>
+                        <SwitchCell Text="Imunodeprimidos"></SwitchCell>
+                        <SwitchCell Text="Gestante"></SwitchCell>
+                        <SwitchCell x:Name="AlertaCinto" Text="Puérpera"></SwitchCell>
+                        <EntryCell Placeholder="Observações"></EntryCell>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+            <Button x:Name="btnEnviar" Text="Enviar Inquérito" ></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

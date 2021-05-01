@@ -1,0 +1,84 @@
+﻿<li class="nav-item">
+    <a class="nav-link @Url.ActiveClass("Home","Index")" asp-area="" asp-controller="Home" asp-action="Index">
+        <i class=" nav-icon fas fas fa-home"></i>
+        <p>@LocalizerGeneral["Home"]</p>
+    </a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link @Url.ActiveClass("Doctors","Index")" asp-area="" asp-controller="Doctors" asp-action="Index">
+        <i class=" nav-icon fas fas fa-user-md"></i>
+        <p>@LocalizerGeneral["Médicos"]</p>
+    </a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link @Url.ActiveClass("Patients","Index")" asp-area="" asp-controller="Patients" asp-action="Index">
+        <i class=" nav-icon fas fa-hospital-user"></i>
+        <p>@LocalizerGeneral["Pacientes"]</p>
+    </a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link @Url.ActiveClass("Inquiries","Index")" asp-area="" asp-controller="Inquiries" asp-action="Index">
+        <i class=" nav-icon fas fa-calendar-check"></i>
+        <p>@LocalizerGeneral["Formulários de Avaliação"]</p>
+    </a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link @Url.ActiveClass("Notices","Index")" asp-area="" asp-controller="Notices" asp-action="Index">
+        <i class=" nav-icon fas fa-exclamation-triangle"></i>
+        <p>@LocalizerGeneral["Avisos"]</p>
+    </a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link @Url.ActiveClass("Home","Services")" asp-area="" asp-controller="Services" asp-action="Index">
+        <i class=" nav-icon fas fa-id-card-alt"></i>
+        <p>@LocalizerGeneral["Services"]</p>
+    </a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link @Url.ActiveClass("EmergencyChannels","Index")" asp-area="" asp-controller="EmergencyChannels" asp-action="Index">
+        <i class=" nav-icon fas fa-headset"></i>
+        <p>@LocalizerGeneral["Serviços de Ajuda"]</p>
+    </a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link @Url.ActiveClass("Home","Substituir Médico")" asp-area="" asp-controller="Home" asp-action="Substituir Médico">
+        <i class=" nav-icon fas fa-people-arrows"></i>
+        <p>@LocalizerGeneral["Substituir Médico"]</p>
+    </a>
+</li>
+
+<li class="nav-item has-treeview">
+    <a href="#" class="nav-link">
+        <i class="nav-icon fas fa-users-cog"></i>
+        <p>@LocalizerGeneral["Configurações"]</p>
+         <i class="right fas fa-angle-left"></i>
+
+    </a>
+    <ul class="nav nav-treeview">
+        <li class="nav-item">
+            <a class="nav-link @Url.ActiveClass("ManageUserClaims","Index")" asp-controller="ManageUserClaims" asp-action="Index">
+                <i class=" nav-icon fas fa-user-shield"></i>
+                <p>@Localizer["Manage User Claims"]</p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link @Url.ActiveClass("Account","Register")" asp-controller="Account" asp-action="Register">
+                <i class=" nav-icon fas fa-user-plus"></i>
+                <p>@LocalizerGeneral["Novo Utilizador"]</p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link @Url.ActiveClass("Specialties","Index")" asp-area="" asp-controller="Specialties" asp-action="Index">
+                <i class=" nav-icon fas fa-stethoscope"></i>
+                <p>@LocalizerGeneral["Especialidades"]</p>
+            </a>
+        </li>
+    </ul>
+</li>

@@ -1,0 +1,43 @@
+﻿@model EmergencyChannelViewModel
+
+@{
+    ViewData["Title"] = Localizer["Criar Serviços de Ajuda"];
+    Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+}
+
+<hr />
+<div class="card card-default">
+    <form asp-action="Create" autocomplete="off" id="form-id">
+        <div class="card-body col-md-6">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @Html.HiddenFor(model => model.Id)
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cell" class="control-label"></label>
+                <input asp-for="Cell" class="form-control" />
+                <span asp-validation-for="Cell" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="sortOrder" class="control-label"></label>
+                <input asp-for="sortOrder" class="form-control" style="max-width: 80px;" />
+                <span asp-validation-for="sortOrder" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="card-footer">
+            <partial name="../Shared/Components/Toolbars/_BtnSaveCancel.cshtml" />
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

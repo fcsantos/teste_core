@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>@ViewData["Title"] - Core.Web</title>
+
+    <title>Lusodata Framework 2.0</title>
+    <partial name="AdminLTE/_Styles" />
+    <style>
+        .center-div {
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -150px;
+            margin-top: -150px;
+        }
+
+        .spinner {
+            position: fixed;
+            z-index: 999;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: Black;
+            filter: alpha(opacity=60);
+            opacity: 0.6;
+            -moz-opacity: 0.8;
+        }
+
+        .loader {
+            margin: auto;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #15a0ec;
+            border-bottom: 16px solid #15a0ec;
+            width: 80px;
+            height: 80px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+        }
+
+        .inner-div {
+            background-color: white;
+            border-radius: 15px;
+            margin: auto;
+            padding: 2%;
+            width: 150px;
+        }
+
+        @@-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @@keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body class="sidebar-mini" style="height: auto;">
+    <div class="wrapper">
+        <partial name="AdminLTE/_TopBar" />
+        <partial name="AdminLTE/_MainMenu" />
+        <div class="content-wrapper" style="min-height: 1403.63px;">
+            <div class="content-header">
+                <partial name="AdminLTE/_Breadcrumb" />
+            </div>
+                <vc:Summary></vc:Summary>
+            <section class="content">
+                <div class="container-fluid">
+                    @RenderBody()
+                    <div class="spinner" style="display:none">
+                        <div class="center-div">
+                            <div class="inner-div">
+                                <div class="loader"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <aside class="control-sidebar control-sidebar-dark">
+            <div class="p-3">
+                <h5>Titulo</h5>
+                <p>Barra Lateral</p>
+            </div>
+        </aside>
+        <partial name="AdminLTE/_Footer" />
+    </div>
+    <partial name="AdminLTE/_Scripts" />
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

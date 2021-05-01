@@ -1,0 +1,85 @@
+﻿@model FornecedorViewModel
+
+@{
+    ViewData["Title"] = ViewBag.EditSupplierName;
+    Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+}
+
+<hr />
+<div class="card card-default">
+    <div class="card-body">
+        <form asp-action="EditPost" class="col-md-6">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.Address.Id)
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Documento" class="control-label"></label>
+                <input asp-for="Documento" class="form-control" />
+                <span asp-validation-for="Documento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoFornecedor" class="control-label"></label>
+                <select class="form-control" asp-for="TipoFornecedor" name="TipoFornecedor">
+                    <option value="">-- @Localizer["Selecione Tipo Fornecedor"] --</option>
+                    <option value="1">@Localizer["Tipo Fornecedor"] 1</option>
+                    <option value="2">@Localizer["Tipo Fornecedor"] 2</option>
+                </select>
+                <span asp-validation-for="TipoFornecedor" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Ativo" /> @Html.DisplayNameFor(model => model.Ativo)
+                </label>
+            </div>
+            <div class="card-header">
+                <h3 class="card-title">@LocalizerGeneral["Endereço"]</h3>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Address.PostalCode" class="control-label"></label>
+                <input asp-for="Address.PostalCode" class="form-control" />
+                <span asp-validation-for="Address.PostalCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address.Location" class="control-label"></label>
+                <input asp-for="Address.Location" class="form-control" />
+                <span asp-validation-for="Address.Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address.Number" class="control-label"></label>
+                <input asp-for="Address.Number" class="form-control" />
+                <span asp-validation-for="Address.Number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address.District" class="control-label"></label>
+                <input asp-for="Address.District" class="form-control" />
+                <span asp-validation-for="Address.District" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address.City" class="control-label"></label>
+                <input asp-for="Address.City" class="form-control" />
+                <span asp-validation-for="Address.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address.State" class="control-label"></label>
+                <input asp-for="Address.State" class="form-control" />
+                <span asp-validation-for="Address.State" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="@LocalizerGeneral["Registrar"]" class="btn btn-primary" />
+                <a asp-action="Index">@LocalizerGeneral["Voltar"]</a>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer">
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

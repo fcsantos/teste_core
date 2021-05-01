@@ -1,0 +1,125 @@
+﻿@model InquiryResultViewModel
+
+@{
+    ViewData["Title"] = Localizer["Imprimir"];
+    Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="card-body">
+            <form asp-action="EditPost" class="col-md-10" autocomplete="off" id="form-id">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="invoice p-3 mb-3">
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>
+                                <i class="fas fa-file-medical mr-2"></i>@Model.InquiryTitle
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div class="row invoice-info">
+                        <div class="col-sm-4 invoice-col">
+                            Médico
+                            <address>
+                                <strong>Médico</strong><br>
+                                @Model.DoctorName<br>
+                                
+                            </address>
+                        </div>
+                        <div class="col-sm-4 invoice-col"></div>
+                        <div class="col-sm-4 invoice-col">
+                            Paciente
+                            <address>
+                                <strong>Paciente</strong><br>
+                                @Model.PatientName<br>
+
+                            </address>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Pergunta</th>
+                                        <th>Resposta</th>
+                                        @if (AppUser.IsAuthenticated())
+                                        {
+                                            @if (!AppUser.GetUserRole(appSettings.Value.RolePatient))
+                                            {
+                                                <th>Pontos</th>
+                                            }
+                                        }
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    @foreach (var item in Model.PatientAnswers)
+                                    {
+                                        <tr>
+                                            <td>@item.QuestionTitle</td>
+                                            <td>@item.AnswerText</td>
+
+                                            @if (AppUser.IsAuthenticated())
+                                            {
+                                                @if (!AppUser.GetUserRole(appSettings.Value.RolePatient))
+                                                {
+                                                    <td>@item.AnswerValue</td>
+                                                }
+                                            }
+                                        </tr>
+
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="lead">Respondido a @Model.UpdatedDate.ToString("dd/MM/yyyy HH:mm")</p>
+                            @if (AppUser.IsAuthenticated())
+                            {
+                                @if (!AppUser.GetUserRole(appSettings.Value.RolePatient))
+                                {
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <tr>
+                                                <th style="width:50%">Pontos:</th>
+
+                                                <td>@Model.AnswerValueSum</td>
+
+
+                                            </tr>
+                                        </table>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+
+                    <div class="row no-print">
+                        <div class="col-12">
+                            <a href="#" id="printButton" rel="noopener" target="_blank" class="btn btn-default float-right"><i class="fas fa-print mr-2"></i>@Localizer["Imprimir"]</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $("#printButton").click(function () {
+            window.addEventListener("load", window.print());
+        });
+    </script>
+}

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Inquéritos"
+             x:Class="ProjetoMRP.Paciente.View.InqueritosPage">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <ContentView x:Name="PlaceHolder" IsVisible="false"></ContentView>
+            <ListView x:Name="lstInqueritos" Margin="15,0,0,0" HasUnevenRows = "true" ItemTapped="lstInqueritos_ItemTapped" IsVisible="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Tapped="ViewCell_Tapped" x:Name="vcInqueritos">
+                            <StackLayout>
+                                <Label Margin="0,25,0,0" Text="{Binding NomeInquerito}" FontSize="Large" FontAttributes="Bold" TextColor="Black"></Label>
+                                <Label Text="{Binding Medico}" FontSize="Medium" TextColor="CadetBlue"></Label>
+                                <Label Text="{Binding DataCriacaoInquerito}" FontSize="Medium"></Label>
+                                <Label Text="{Binding DataModificacaoInquerito}" FontSize="Medium"></Label>
+                                <!--<Label Text="Clique para aceder o inquérito" FontSize="Medium" TextColor="Blue"></Label>-->
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+    
+    

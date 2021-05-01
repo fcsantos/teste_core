@@ -1,0 +1,45 @@
+﻿@model ClinicalSummaryFacilitatorViewModel
+
+@{
+    ViewData["Title"] = Localizer["Criar Facilitador de Resumo Clínico"];
+    Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+}
+
+<hr />
+<div class="card card-default">
+    <form asp-action="Create" id="form-id">
+        <div class="card-body col-md-6">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @Html.HiddenFor(model => model.PathologyId)
+            <div class="form-group">
+                <label asp-for="TypeClinicalSummary" class="control-label"></label>
+                <select class="form-control" asp-for="TypeClinicalSummary">
+                    <option value="">-- @Localizer["Selecione Tipo de Resumo Clinico"] --</option>
+                    <option value="Allergy">-- @Localizer["Alergia"] --</option>
+                    <option value="Diagnostic">-- @Localizer["Diagnóstico"] --</option>
+                    <option value="Observation">-- @Localizer["Observação"] --</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="row" style="max-width: 500px;">
+                <div class="col-sm-2"><input type="submit" value="@LocalizerGeneral["Guardar"]" class="btn btn-primary" /></div>
+                <div class="col-sm-2"><a asp-action="Index" asp-controller="ClinicalSummaryFacilitators" asp-route-id="@Model.PathologyId" class="btn btn-link">@LocalizerGeneral["Voltar"]</a></div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

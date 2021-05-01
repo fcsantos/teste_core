@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProjetoMRP.Paciente.View.Home">
+    <ScrollView>
+        <StackLayout Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="Center">
+            <Label x:Name="lblCliente" Text="Hospital Abc" Margin="0,15,0,0" FontSize="Large"
+                   FontAttributes="Bold" HorizontalOptions="Center"></Label>
+            <Grid Margin="20,0,10,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150" />
+                    <RowDefinition Height="130" />
+                    <RowDefinition Height="170" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition />
+
+                </Grid.ColumnDefinitions>
+
+                <ImageButton Grid.Row="0" Grid.Column="0" BackgroundColor="White" x:Name="lst" Source="HealthCare_80.png" ></ImageButton>
+                <Label Grid.Row="0" Grid.Column="1" x:Name="lblPlanoCuidados" Text="{Binding Quantidade}" VerticalTextAlignment="Start" Margin="10,45,50,50"></Label>
+                <Label Grid.Row="0" Grid.Column="1" x:Name="lblAlteracoesPlanoCuidados" Text="Tem alterações no plano de cuidados" Margin="10,65,50,50" VerticalTextAlignment="Center" FontAttributes="Bold"></Label>
+
+                <ImageButton Grid.Row="1" Grid.Column="0" BackgroundColor="White" x:Name="btnInqueritos" Source="Inquerito_80.png" Margin="0,0,0,60" ></ImageButton>
+                <Label Grid.Row="1" Grid.Column="1" x:Name="lblInqueritos" Text="" VerticalTextAlignment="Start" Margin="10,0,50,50"></Label>
+                <Label Grid.Row="1" Grid.Column="1" x:Name="lblAlteracoesInquerito" Text="Tem 2 inquéritos para preencher" VerticalTextAlignment="Center" Margin="10,0,50,50" FontAttributes="Bold"></Label>
+
+                <ImageButton Grid.Row="2" Grid.Column="0" BackgroundColor="White" x:Name="btnMessage" Source="Mensagens_80.png" Margin="0,-50,0,100"></ImageButton>
+                <Label Grid.Row="2" Grid.Column="1" x:Name="lblMensagem" Text="" VerticalTextAlignment="Start" Margin="10,-20,50,50"></Label>
+                <Label Grid.Row="2" Grid.Column="1" x:Name="lblAlteracoesMensagem" Text="Tem 3 mensagens por ler" Margin="10,-55,50,50" VerticalTextAlignment="Center" FontAttributes="Bold"></Label>
+
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

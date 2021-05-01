@@ -1,0 +1,28 @@
+﻿<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <a href="~/Home" class="brand-link">
+        <span class="brand-text font-weight-bolder fa-1x" style="padding-left:20px;">MRP</span>
+    </a>
+    <div class="sidebar">
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                @if (AppUser.IsAuthenticated())
+                {
+                    @if (AppUser.GetUserRole(appSettings.Value.RoleAdmin))
+                    {
+                        <partial name="AdminLTE/_MenuAdmin" />
+                    }
+
+                    @if (AppUser.GetUserRole(appSettings.Value.RolePatient))
+                    {
+                        <partial name="AdminLTE/_MenuPaciente" />
+                    }
+
+                    @if (AppUser.GetUserRole(appSettings.Value.RoleDoctor))
+                    {
+                        <partial name="AdminLTE/_MenuMedico" />
+                    }
+                }
+            </ul>
+        </nav>
+    </div>
+</aside>

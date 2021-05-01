@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Mensagem"
+             x:Class="ProjetoMRP.Paciente.View.MensagemPage">
+
+    <ContentPage.Content >
+        <StackLayout>
+            <ContentView x:Name="PlaceHolder" IsVisible="false"></ContentView>
+            <ListView x:Name="lstMensagens" SeparatorVisibility="Default" SeparatorColor="Black" HasUnevenRows="True" ItemTapped="lstMensagens_ItemTapped" IsVisible="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Tapped="ViewCell_Tapped" >
+                            <Frame BackgroundColor="White">
+                                <StackLayout>
+                                       
+                                    <Label Grid.Row="0" Margin="10,-5,0,0" Text="{Binding Data}"            />
+                                    <Label Grid.Row="1" Margin="10,0,0,0" Text="{Binding NomeMedico}" FontAttributes="Bold" TextColor="Black" FontSize="Medium"/>
+                                    <Label Grid.Row="1" Margin="10,0,0,0" Text="{Binding Texto}" BackgroundColor="White" TextColor="Black" IsEnabled="False" WidthRequest="600" MaxLines="10"/>
+                                    <Label Grid.Row="3" Margin="10,0,0,0" Text="{Binding StatusMensagem}" FontSize="Small" TextColor="Green"/>
+
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

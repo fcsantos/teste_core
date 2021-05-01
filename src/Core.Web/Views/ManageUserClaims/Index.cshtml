@@ -1,0 +1,43 @@
+﻿@model IEnumerable<AllUsersViewModel>
+
+@{
+    ViewData["Title"] = Localizer["Editar Permissões"];
+    Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+<section class="padding-y">
+        @if (Model.Any())
+        {
+            <table id="table" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>@Localizer["Tipo de Utilizador"]</th>
+                        <th>@Localizer["Nome"]</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model)
+                    {
+                    <tr>
+                        <td width="25%">@user.UserType</td>
+                        <td width="60%">@user.Name</td>                        
+                        <td width="15%" class="text-center py-0 align-middle">
+                            <div class="btn-group btn-group-sm">
+                                <a class="btn btn-primary" asp-controller="ManageUserClaims" asp-action="Edit" asp-route-id="@user.Id" data-toggle="tooltip" data-placement="right" title="@Localizer["Editar"]"><i class="fas fa-edit"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p style="font-style:italic">@Localizer["Não existe nenhum registo."]</p>
+        }
+</section>

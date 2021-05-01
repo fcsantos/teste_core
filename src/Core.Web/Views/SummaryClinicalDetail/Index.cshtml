@@ -1,0 +1,380 @@
+﻿@model SummaryClinicalDetailViewModel
+
+@{
+    ViewData["Title"] = ViewBag.SummaryClinicalDetailPatient;
+    Layout = "~/Views/Shared/AdminLTE/_LayoutSummaryClinicalDetail.cshtml";
+}
+@if (Model.AllergiesExcept.Any())
+{<span>@LocalizerGeneral["Atenção: Existem Alergias registadas para este paciente."] <i style="color:red;" class="bi bi-exclamation-triangle"></i> </span>}
+<br />
+<br />
+<section class="padding-y">
+
+    <div class="card card-primary card-outline card-outline-tabs">
+        <div class="card-header bg-white p-0 pt-1 border-bottom-0">
+            <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="@(ViewBag.ActiveTab == "Consultation" || ViewBag.ActiveTab == null ? "nav-link active" : "nav-link")" id="custom-tabs-one-consultation-tab" data-toggle="pill" href="#custom-tabs-one-consultation" role="tab" aria-controls="custom-tabs-one-consultation" aria-selected="@(ViewBag.ActiveTab == "Consultation" ? "true" : "false")">@Localizer["Consultas"]</a>
+                </li>
+                <li class="nav-item">
+                    <a class="@(ViewBag.ActiveTab == "Allergy" ? "nav-link active" : "nav-link")" id="custom-tabs-one-allergy-tab" data-toggle="pill" href="#custom-tabs-one-allergy" role="tab" aria-controls="custom-tabs-one-allergy" aria-selected="@(ViewBag.ActiveTab == "Allergy" ? "true" : "false")">@Localizer["Alergias"]</a>
+                </li>
+                <li class="nav-item">
+                    <a class="@(ViewBag.ActiveTab == "Diagnostic" ? "nav-link active" : "nav-link")" id="custom-tabs-one-diagnostic-tab" data-toggle="pill" href="#custom-tabs-one-diagnostic" role="tab" aria-controls="custom-tabs-one-diagnostic" aria-selected="@(ViewBag.ActiveTab == "Diagnostic" ? "true" : "false")">@Localizer["Diagnósticos"]</a>
+                </li>
+                <li class="nav-item">
+                    <a class="@(ViewBag.ActiveTab == "CarePlan" ? "nav-link active" : "nav-link")" id="custom-tabs-one-careplan-tab" data-toggle="pill" href="#custom-tabs-one-careplan" role="tab" aria-controls="custom-tabs-one-careplan" aria-selected="@(ViewBag.ActiveTab == "CarePlan" ? "true" : "false")">@Localizer["Plano de Cuidados"]</a>
+                </li>
+                <li class="nav-item">
+                    <a class="@(ViewBag.ActiveTab == "Observation" ? "nav-link active" : "nav-link")" id="custom-tabs-one-observation-tab" data-toggle="pill" href="#custom-tabs-one-observation" role="tab" aria-controls="custom-tabs-one-observation" aria-selected="@(ViewBag.ActiveTab == "Observation" ? "true" : "false")">@Localizer["Observações"]</a>
+                </li>
+                <li class="nav-item">
+                    <a class="@(ViewBag.ActiveTab == "Message" ? "nav-link active" : "nav-link")" id="custom-tabs-one-message-tab" data-toggle="pill" href="#custom-tabs-one-message" role="tab" aria-controls="custom-tabs-one-message" aria-selected="@(ViewBag.ActiveTab == "Message" ? "true" : "false")">@Localizer["Mensagens"]</a>
+                </li>
+                <li class="nav-item">
+                    <a class="@(ViewBag.ActiveTab == "Inquiry" ? "nav-link active" : "nav-link")" id="custom-tabs-one-inquiry-tab" data-toggle="pill" href="#custom-tabs-one-inquiry" role="tab" aria-controls="custom-tabs-one-inquiry" aria-selected="@(ViewBag.ActiveTab == "Inquiry" ? "true" : "false")">@Localizer["Inquéritos"]</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="card-body">
+            <div class="tab-content" id="custom-tabs-one-tabContent">
+                <div class="@(ViewBag.ActiveTab == "Consultation" || ViewBag.ActiveTab == null ? "tab-pane fade show active" : "tab-pane fade")" id="custom-tabs-one-consultation" role="tabpanel" aria-labelledby="custom-tabs-one-consultation-tab">
+                    <div class="card card-primary card-outline card-outline-tabs">
+                        <div class="card-header bg-white p-0 pt-1 border-bottom-0">
+                            <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="custom-tabs-one-consultation-historic-tab" data-toggle="pill" href="#custom-tabs-one-consultation-historic" role="tab" aria-controls="custom-tabs-one-consultation-historic" aria-selected="true">@Localizer["Criar Consulta/Histórico"]</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="custom-tabs-one-consultation-historic-others-tab" data-toggle="pill" href="#custom-tabs-one-consultation-historic-others" role="tab" aria-controls="custom-tabs-one-consultation-historic-others" aria-selected="true">@Localizer["Histórico de outros Médicos"]</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="tab-content" id="custom-tabs-one-tabContent">
+                                <div class="tab-pane fade show active" id="custom-tabs-one-consultation-historic" role="tabpanel" aria-labelledby="custom-tabs-one-consultation-historic-tab">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="card card-default">
+                                                <partial name="~/Views/Consultations/Create.cshtml" />
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <partial name="~/Views/Consultations/Index.cshtml" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="custom-tabs-one-consultation-historic-others" role="tabpanel" aria-labelledby="custom-tabs-one-consultation-historic-others-tab">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <partial name="~/Views/Consultations/HistoryOfOtherDoctors.cshtml" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="@(ViewBag.ActiveTab == "Allergy" ? "tab-pane fade show active" : "tab-pane fade")" id="custom-tabs-one-allergy" role="tabpanel" aria-labelledby="custom-tabs-one-allergy-tab">
+                    <div class="card card-primary card-outline card-outline-tabs">
+                        <div class="card-header bg-white p-0 pt-1 border-bottom-0">
+                            <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="custom-tabs-one-allergy-historic-tab" data-toggle="pill" href="#custom-tabs-one-allergy-historic" role="tab" aria-controls="custom-tabs-one-allergy-historic" aria-selected="true">@Localizer["Criar Alergia/Histórico"]</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="custom-tabs-one-allergy-historic-others-tab" data-toggle="pill" href="#custom-tabs-one-allergy-historic-others" role="tab" aria-controls="custom-tabs-one-allergy-historic-others" aria-selected="true">@Localizer["Histórico de outros Médicos"]</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="tab-content" id="custom-tabs-one-tabContent">
+                                <div class="tab-pane fade show active" id="custom-tabs-one-allergy-historic" role="tabpanel" aria-labelledby="custom-tabs-one-allergy-historic-tab">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="card card-default">
+                                                <partial name="~/Views/Allergies/Create.cshtml" />
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <partial name="~/Views/Allergies/Index.cshtml" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="custom-tabs-one-allergy-historic-others" role="tabpanel" aria-labelledby="custom-tabs-one-allergy-historic-others-tab">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <partial name="~/Views/Allergies/HistoryOfOtherDoctors.cshtml" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="@(ViewBag.ActiveTab == "Diagnostic" ? "tab-pane fade show active" : "tab-pane fade")" id="custom-tabs-one-diagnostic" role="tabpanel" aria-labelledby="custom-tabs-one-diagnostic-tab">
+                    <div class="card card-primary card-outline card-outline-tabs">
+                        <div class="card-header bg-white p-0 pt-1 border-bottom-0">
+                            <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="custom-tabs-one-diagnostic-historic-tab" data-toggle="pill" href="#custom-tabs-one-diagnostic-historic" role="tab" aria-controls="custom-tabs-one-diagnostic-historic" aria-selected="true">@Localizer["Criar Diagnostico/Histórico"]</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="custom-tabs-one-allergy-diagnostic-others-tab" data-toggle="pill" href="#custom-tabs-one-diagnostic-historic-others" role="tab" aria-controls="custom-tabs-one-diagnostic-historic-others" aria-selected="true">@Localizer["Histórico de outros Médicos"]</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="tab-content" id="custom-tabs-one-tabContent">
+                                <div class="tab-pane fade show active" id="custom-tabs-one-diagnostic-historic" role="tabpanel" aria-labelledby="custom-tabs-one-diagnostic-historic-tab">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="card card-default">
+                                                <partial name="~/Views/Diagnostics/Create.cshtml" />
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <partial name="~/Views/Diagnostics/Index.cshtml" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="custom-tabs-one-diagnostic-historic-others" role="tabpanel" aria-labelledby="custom-tabs-one-diagnostic-historic-others-tab">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <partial name="~/Views/Diagnostics/HistoryOfOtherDoctors.cshtml" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="@(ViewBag.ActiveTab == "CarePlan" ? "tab-pane fade show active" : "tab-pane fade")" id="custom-tabs-one-careplan" role="tabpanel" aria-labelledby="custom-tabs-one-careplan-tab">
+                    <div class="card card-primary card-outline card-outline-tabs">
+                        <div class="card-header bg-white p-0 pt-1 border-bottom-0">
+                            <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="custom-tabs-one-careplan-historic-tab" data-toggle="pill" href="#custom-tabs-one-careplan-historic" role="tab" aria-controls="custom-tabs-one-careplan-historic" aria-selected="true">@Localizer["Criar Plano de cuidados/Histórico"]</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="custom-tabs-one-allergy-careplan-others-tab" data-toggle="pill" href="#custom-tabs-one-careplan-historic-others" role="tab" aria-controls="custom-tabs-one-careplan-historic-others" aria-selected="true">@Localizer["Histórico de outros Médicos"]</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="tab-content" id="custom-tabs-one-tabContent">
+                                <div class="tab-pane fade show active" id="custom-tabs-one-careplan-historic" role="tabpanel" aria-labelledby="custom-tabs-one-careplan-historic-tab">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="card card-default">
+                                                <partial name="~/Views/CarePlans/Create.cshtml" />
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <partial name="~/Views/CarePlans/Index.cshtml" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="custom-tabs-one-careplan-historic-others" role="tabpanel" aria-labelledby="custom-tabs-one-careplan-historic-others-tab">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <partial name="~/Views/CarePlans/HistoryOfOtherDoctors.cshtml" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="@(ViewBag.ActiveTab == "Observation" ? "tab-pane fade show active" : "tab-pane fade")" id="custom-tabs-one-observation" role="tabpanel" aria-labelledby="custom-tabs-one-observation-tab">
+                    <div class="card card-primary card-outline card-outline-tabs">
+                        <div class="card-header bg-white p-0 pt-1 border-bottom-0">
+                            <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="custom-tabs-one-observation-historic-tab" data-toggle="pill" href="#custom-tabs-one-observation-historic" role="tab" aria-controls="custom-tabs-one-observation-historic" aria-selected="true">@Localizer["Criar Observações/Histórico"]</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="custom-tabs-one-allergy-observation-others-tab" data-toggle="pill" href="#custom-tabs-one-observation-historic-others" role="tab" aria-controls="custom-tabs-one-observation-historic-others" aria-selected="true">@Localizer["Histórico de outros Médicos"]</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="tab-content" id="custom-tabs-one-tabContent">
+                                <div class="tab-pane fade show active" id="custom-tabs-one-observation-historic" role="tabpanel" aria-labelledby="custom-tabs-one-observation-historic-tab">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="card card-default">
+                                                <partial name="~/Views/Observations/Create.cshtml" />
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <partial name="~/Views/Observations/Index.cshtml" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="custom-tabs-one-observation-historic-others" role="tabpanel" aria-labelledby="custom-tabs-one-observation-historic-others-tab">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <partial name="~/Views/Observations/HistoryOfOtherDoctors.cshtml" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="@(ViewBag.ActiveTab == "Message" ? "tab-pane fade show active" : "tab-pane fade")" id="custom-tabs-one-message" role="tabpanel" aria-labelledby="custom-tabs-one-message-tab">
+                    <div class="card card-primary card-outline card-outline-tabs">
+                        <div class="card-header bg-white p-0 pt-1 border-bottom-0">
+                            <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="custom-tabs-one-message-historic-tab" data-toggle="pill" href="#custom-tabs-one-message-historic" role="tab" aria-controls="custom-tabs-one-message-historic" aria-selected="true">@Localizer["Enviar Mensagem/Histórico"]</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content" id="custom-tabs-one-tabContent">
+                                <div class="tab-pane fade show active" id="custom-tabs-one-message-historic" role="tabpanel" aria-labelledby="custom-tabs-one-message-historic-tab">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="card card-default">
+                                                <partial name="~/Views/Messages/CreateByPatient.cshtml" />
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <partial name="~/Views/Messages/IndexByPatient.cshtml" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="@(ViewBag.ActiveTab == "Inquiry" ? "tab-pane fade show active" : "tab-pane fade")" id="custom-tabs-one-inquiry" role="tabpanel" aria-labelledby="custom-tabs-one-inquiry-tab">
+                    <div class="card card-primary card-outline card-outline-tabs">
+                        <div class="card-header bg-white p-0 pt-1 border-bottom-0">
+                            <ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="custom-tabs-one-inquiry-historic-tab" data-toggle="pill" href="#custom-tabs-one-inquiry-historic" role="tab" aria-controls="custom-tabs-one-inquiry-historic" aria-selected="true">@Localizer["Inquérito"]</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content" id="custom-tabs-one-tabContent">
+                                <div class="tab-pane fade show active" id="custom-tabs-one-inquiry-historic" role="tabpanel" aria-labelledby="custom-tabs-one-inquiry-historic-tab">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="card card-default">
+                                                <partial name="~/Views/Inquiries/CreateInquirySchedule.cshtml" />
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <partial name="~/Views/Inquiries/PatientInquirySchedule.cshtml" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Modal Detalhes da Mensagem -->
+<div class="modal" id="mdMessageDetail" tabindex="-1" role="dialog" aria-labelledby="mdMessageDetailLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">@Localizer["Ler mensagem"]</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <partial name="~/Views/Messages/ReplyMessage.cshtml" />
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            viewMore = (function (btn) {
+                var ids = $(btn).attr('data-id');
+                var status = $(btn).attr('data-status');
+
+                $(".msgHidden").hide();
+                $(".msgAnswered").hide();
+                $("#text").val("");
+                $("#mensagemTextoPaciente").html("");
+
+                if ("AwaitingResponse" != status) {
+                    $(".card-reply").show();
+                    $(".msgHidden").hide();
+                }
+                else if ("AwaitingResponse" == status) {
+                    $(".card-reply").show();
+                    $(".msgHidden").hide();
+                }
+                else {
+                    $(".card-reply").hide();
+                    $(".msgHidden").show();
+                }
+
+                var _message = loadMessage(ids, 0);
+                var _reply = {};
+
+                if (_message != null) {
+                    $('#mensagemTexto').html(_message.text);
+                    $('#messageDate').html(_message.dateFormat);
+                    $('#doctorName').html(_message.doctorName);
+                    $('#DoctorId').val(_message.doctorId);
+                    $('#IsReply').val(_message.isReply);
+                    $('#ReplyMessageId').val(ids);
+                    $('#PatientId').val(_message.patientId);
+
+                    if ("Answered" == _message.statusMessage) {
+                        _reply = loadMessage(_message.id, 1);
+                        $(".msgAnswered").show();
+                        $('#mensagemTextoPaciente').html(_reply.text);
+                        $('#patientName').html(_reply.patientName);
+                        $('#replyDate').html(_reply.dateFormat);
+                    }
+                }
+
+                $('#mdMessageDetail').modal('show');
+
+            });
+
+            loadMessage = function (_id, _service) {
+                var _url = (_service == 1) ? '@Url.Action("GetByReplyMessageId", "Messages")?id=' + _id : '@Url.Action("GetMessageById", "Messages")?id=' + _id;
+                var _retorno = {};
+
+                $.ajax({
+                    url: _url,
+                    dataType: "json",
+                    type: "GET",
+                    contentType: 'application/json; charset=utf-8',
+                    async: false,
+                    processData: false,
+                    cache: false,
+                    success: function (data) {
+                        _retorno = data;
+                    }
+                }); // end ajax
+                return _retorno;
+            } // end function
+        });
+
+    </script>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

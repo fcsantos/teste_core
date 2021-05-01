@@ -1,0 +1,11 @@
+﻿@model QuestionViewModel
+@if (Model.AnswerOptions != null)
+{
+    @foreach (var i in Model.AnswerOptions)
+    {
+        <div class="form-check checkbox-inline mr-2 col-6">
+            <input class="form-check-input" type="checkbox" id="@i.Id" name="Q|@Model.Id|@i.Id" value="@i.Option">
+            <label class="form-check-label" for="@i.Id">@i.Option</label>
+        </div>
+    }
+}

@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="A especialidade possui sub especialidades cadastrados" xml:space="preserve">
+    <value>The specialty has registered sub-specialties</value>
+  </data>
+  <data name="A especialidade possui um ou mais médicos cadastrados" xml:space="preserve">
+    <value>The specialty has one or more registered doctors</value>
+  </data>
+  <data name="A nossa equipa será avisada e iremos corrigir em breve!" xml:space="preserve">
+    <value>Our team will be notified and we will correct it soon!</value>
+  </data>
+  <data name="A patologia possui facilitadores cadastrados" xml:space="preserve">
+    <value>The pathology has registered facilitators</value>
+  </data>
+  <data name="A patologia possui sub patologias cadastrados" xml:space="preserve">
+    <value>The pathology has sub-pathologies registered</value>
+  </data>
+  <data name="Apagar" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Atenção: Existem Alergias registadas para este paciente." xml:space="preserve">
+    <value>Attention: There are Allergies registered for this patient.</value>
+  </data>
+  <data name="Atenção: Há {0} mensagens respondidas que ainda não foram lidas." xml:space="preserve">
+    <value>Attention: There are {0} unanswered messages that have not yet been read.</value>
+  </data>
+  <data name="Ativar" xml:space="preserve">
+    <value>Activate</value>
+  </data>
+  <data name="Ativo" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Avisos" xml:space="preserve">
+    <value>Notices</value>
+  </data>
+  <data name="Bem vindo" xml:space="preserve">
+    <value>Welcome</value>
+  </data>
+  <data name="Clonar" xml:space="preserve">
+    <value>Clone</value>
+  </data>
+  <data name="Configurações" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Consultas Criadas" xml:space="preserve">
+    <value>Created Consultation</value>
+  </data>
+  <data name="Contacte o nosso suporte." xml:space="preserve">
+    <value>Contact our support.</value>
+  </data>
+  <data name="Deletar" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Detalhe" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Diagnósticos Ativos" xml:space="preserve">
+    <value>Active Diagnostics</value>
+  </data>
+  <data name="Editar" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Endereço" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="Entrar" xml:space="preserve">
+    <value>Enter</value>
+  </data>
+  <data name="Especialidades" xml:space="preserve">
+    <value>Specialties</value>
+  </data>
+  <data name="Esqueci a minha senha" xml:space="preserve">
+    <value>I forgot my password</value>
+  </data>
+  <data name="Facilitador de Resumo Clínico" xml:space="preserve">
+    <value>Clinical Summary Facilitators</value>
+  </data>
+  <data name="Favor selecione um ou mais pacientes ao aviso." xml:space="preserve">
+    <value>Please select one or more patients to the notice.</value>
+  </data>
+  <data name="Favor selecione uma ou mais especialidades ao médico." xml:space="preserve">
+    <value>Please select one or more specialties with the doctor.</value>
+  </data>
+  <data name="Formulários de Avaliação" xml:space="preserve">
+    <value>Evaluation Forms</value>
+  </data>
+  <data name="Guardar" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Inativar" xml:space="preserve">
+    <value>Inactivate</value>
+  </data>
+  <data name="Inativo" xml:space="preserve">
+    <value>Inactive</value>
+  </data>
+  <data name="Inquerito" xml:space="preserve">
+    <value>Inquiry</value>
+  </data>
+  <data name="Inqueritos Ativos" xml:space="preserve">
+    <value>Active Inquiries</value>
+  </data>
+  <data name="Já existe um Aviso com este documento infomado." xml:space="preserve">
+    <value>There is already a notice with this information document.</value>
+  </data>
+  <data name="Já existe um Aviso criado com estas informações." xml:space="preserve">
+    <value>There is already a Notice created with this information.</value>
+  </data>
+  <data name="Já existe um facilitador com este nome e descrição infomados para a patologia escolhida." xml:space="preserve">
+    <value>A facilitator with this name and description already exists for the chosen pathology.</value>
+  </data>
+  <data name="Já existe um fornecedor com este documento infomado." xml:space="preserve">
+    <value>There is already a supplier with this information document.</value>
+  </data>
+  <data name="Já existe um médico com estes documentos infomados." xml:space="preserve">
+    <value>There is already a doctor with these documents.</value>
+  </data>
+  <data name="Já existe um paciente com estes documentos infomados." xml:space="preserve">
+    <value>There is already a patient with these infamous documents.</value>
+  </data>
+  <data name="Já existe um serviço de ajuda com o nome informado." xml:space="preserve">
+    <value>There is already a EmergencyChannel with the name provided.</value>
+  </data>
+  <data name="Já existe uma especialidade com este nome infomado." xml:space="preserve">
+    <value>There is already a specialty with this infamous name.</value>
+  </data>
+  <data name="Já existe uma mensagem com este texto e que ainda está ativa, para o paciente selecionado." xml:space="preserve">
+    <value>There is already a message with this text and it is still active, for the selected patient.</value>
+  </data>
+  <data name="Já existe uma patologia com este nome infomado." xml:space="preserve">
+    <value>There is already a pathology with this infamous name.</value>
+  </data>
+  <data name="Login de usuário" xml:space="preserve">
+    <value>User login</value>
+  </data>
+  <data name="Marcar como lido" xml:space="preserve">
+    <value>Mark as read</value>
+  </data>
+  <data name="Marcar como não lido" xml:space="preserve">
+    <value>Mark as unread</value>
+  </data>
+  <data name="Mensagens" xml:space="preserve">
+    <value>Messages</value>
+  </data>
+  <data name="Mensagens por responder" xml:space="preserve">
+    <value>Pending messages</value>
+  </data>
+  <data name="Médicos" xml:space="preserve">
+    <value>Doctors</value>
+  </data>
+  <data name="Notificações" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="Novo Utilizador" xml:space="preserve">
+    <value>New User</value>
+  </data>
+  <data name="O Controller possui actions cadastrados!" xml:space="preserve">
+    <value>The Controller has registered actions!</value>
+  </data>
+  <data name="O fornecedor possui produtos cadastrados!" xml:space="preserve">
+    <value>The supplier has registered products!</value>
+  </data>
+  <data name="O id informado não é o mesmo que foi passado na query" xml:space="preserve">
+    <value>The id is not the same as what was passed in the query</value>
+  </data>
+  <data name="O que você está procurando?" xml:space="preserve">
+    <value>What are you looking for?</value>
+  </data>
+  <data name="Oi," xml:space="preserve">
+    <value>Hi,</value>
+  </data>
+  <data name="Oi, Visitante" xml:space="preserve">
+    <value>Hi, Guest</value>
+  </data>
+  <data name="Ooops! Ocorreu um erro, mas não se preocupe." xml:space="preserve">
+    <value>Ooops! An error has occurred, but don't worry.</value>
+  </data>
+  <data name="Opa! Algo deu errado" xml:space="preserve">
+    <value>Oops! Something went wrong</value>
+  </data>
+  <data name="Pacientes" xml:space="preserve">
+    <value>Patients</value>
+  </data>
+  <data name="Pacientes Ativos" xml:space="preserve">
+    <value>Active Patients</value>
+  </data>
+  <data name="Patologias" xml:space="preserve">
+    <value>Pathologies</value>
+  </data>
+  <data name="Plano de Cuidados" xml:space="preserve">
+    <value>Care Plans</value>
+  </data>
+  <data name="Política de Privacidade" xml:space="preserve">
+    <value>Privacy Policy</value>
+  </data>
+  <data name="Página inicial" xml:space="preserve">
+    <value>Home Page</value>
+  </data>
+  <data name="Recuperar senha" xml:space="preserve">
+    <value>Recover Password</value>
+  </data>
+  <data name="Redefinir" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="Redefinir senha" xml:space="preserve">
+    <value>Reset password</value>
+  </data>
+  <data name="Registrar" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Registro ativado com sucesso" xml:space="preserve">
+    <value>Registration activated successfully</value>
+  </data>
+  <data name="Registro de novo utilizador" xml:space="preserve">
+    <value>New user registration</value>
+  </data>
+  <data name="Registro deletado com sucesso" xml:space="preserve">
+    <value>Registration successfully deleted</value>
+  </data>
+  <data name="Registro inativado com sucesso" xml:space="preserve">
+    <value>Registration deactivated successfully</value>
+  </data>
+  <data name="Responder" xml:space="preserve">
+    <value>Answer</value>
+  </data>
+  <data name="Resumo Clinico" xml:space="preserve">
+    <value>Clinical Summary</value>
+  </data>
+  <data name="Sair" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="Se você possui uma conta conosco, enviamos um e-mail com as instruções para redefinir sua password." xml:space="preserve">
+    <value>If you have an account with us, we send you an email with instructions on how to reset your password.</value>
+  </data>
+  <data name="Seja bem vindo!" xml:space="preserve">
+    <value>Be welcome!</value>
+  </data>
+  <data name="Selecione" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="Selecione Perfil" xml:space="preserve">
+    <value>Select Role</value>
+  </data>
+  <data name="Serviços" xml:space="preserve">
+    <value>Services</value>
+  </data>
+  <data name="Serviços de Ajuda" xml:space="preserve">
+    <value>Emergency Channels</value>
+  </data>
+  <data name="Substituir Médico" xml:space="preserve">
+    <value>Replace Doctor</value>
+  </data>
+  <data name="Todos os direitos reservados." xml:space="preserve">
+    <value>All rights reserved.</value>
+  </data>
+  <data name="Usuário ou Senha incorretos" xml:space="preserve">
+    <value>Incorrect username or password</value>
+  </data>
+  <data name="Usuário temporariamente bloqueado por tentativas inválida" xml:space="preserve">
+    <value>User temporarily blocked by invalid attempts</value>
+  </data>
+  <data name="Utilizador" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="Ver mais" xml:space="preserve">
+    <value>View more</value>
+  </data>
+  <data name="Você esqueceu sua senha?" xml:space="preserve">
+    <value>Forgot your password?</value>
+  </data>
+  <data name="Voltar" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Voltar para o" xml:space="preserve">
+    <value>Back to</value>
+  </data>
+  <data name="{0} Avisos" xml:space="preserve">
+    <value>{0} Notices</value>
+  </data>
+  <data name="{0} Mensagens não lidas" xml:space="preserve">
+    <value>{0} Unread messages</value>
+  </data>
+  <data name="{0} Mensagens por responder" xml:space="preserve">
+    <value>{0} Pending Messages</value>
+  </data>
+  <data name="{0} Notificações" xml:space="preserve">
+    <value>{0} Notifications</value>
+  </data>
+  <data name="{0} Plano de Cuidados" xml:space="preserve">
+    <value>{0} Care Plans</value>
+  </data>
+</root>

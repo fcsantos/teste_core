@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+x:Class="ProjetoMRP.Paciente.View.RespostaPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <ContentView x:Name="PlaceHolder" IsVisible="false"></ContentView>
+            <ListView x:Name="lstMensagens" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell Tapped="ViewCell_Tapped">
+                            <StackLayout>
+                                <Grid RowSpacing="0">
+                                    <Label Grid.Row="0" Padding="10" Text="{Binding Data}" FontSize="15" />
+                                    <Label Grid.Row="1" Padding="10" Text="{Binding NomeMedico}" FontAttributes="Bold" FontSize="17" />
+                                    <Label Grid.Row="2" Padding="10" Text="{Binding Texto}" FontSize="15" />
+                                    <Label Grid.Row="3" Padding="10" Text="{Binding StatusMensagem}" FontSize="15" />
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Editor Placeholder="Escrever sua resposta aqui" WidthRequest="400" HeightRequest="275" 
+                    MaxLength="200" HorizontalOptions="Center" x:Name="txtResposta" TextColor="Black" BackgroundColor="AntiqueWhite"/>
+            <Button x:Name="btnEnviar" Text="Enviar" Clicked="btnEnviar_Clicked" ></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,8 @@
+﻿@model QuestionViewModel
+@if (Model.AnswerOptions != null)
+{
+    @foreach (var i in Model.AnswerOptions)
+    {
+        <input type="text" class="form-control col-4" id="@i.Id" name="Q|@Model.Id|@i.Id" placeholder="@Model.Placeholder">
+    }
+}

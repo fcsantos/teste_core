@@ -1,0 +1,35 @@
+﻿<script>
+    $(document).ready(function () {
+
+        refreshSelect2 = function () {
+            var serviceId = $("#Id").val();
+            var doctorId = $("#DropList").val();
+
+            if (doctorId == "") {
+                $("#simpleSelect2").empty();
+                return null;
+            }
+
+            var url = "/Services/GetListDoctor?serviceId=" + serviceId;
+            $.getJSON(url, function (data) {
+                var item = "";
+                $("#simpleSelect2").empty();
+                $.each(data, function (i, action) {
+                    if (action.value != doctorId) {
+                        item += '<option value="' + action.value + '" ' + ((action.selected) ? 'selected ' : '') + '>' + action.text + '</option>';
+                    }
+                });
+                $("#simpleSelect2").html(item);
+            });
+
+        }
+
+        $("#DropList").change(function () {
+            refreshSelect2();
+        });
+
+        refreshSelect2();
+        $("#simpleSelect2").select2();
+
+    });
+</script>

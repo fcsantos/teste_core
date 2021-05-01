@@ -1,0 +1,43 @@
+﻿@model SummaryClinicalDetailViewModel
+
+<form asp-action="CreateInquirySchedule" asp-controller="Inquiries" id="form-id-inquiry-schedule">
+    <div class="card-body col-md-12">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @*@Html.HiddenFor(model => model.InquirySchedule.PatientId)*@
+        <input type="hidden" asp-for="InquirySchedule.PatientId" value="@ViewBag.PatientId" />
+        <div class="form-group">
+            <label asp-for="InquirySchedule.InquiryId" class="control-label"></label>
+            <select class="form-control" asp-for="InquirySchedule.InquiryId" asp-items="ViewBag.SelectListInquiries">
+                <option value="">-- @Localizer["Selecione Inquérito"] --</option>
+            </select>
+            <span asp-validation-for="InquirySchedule.InquiryId" class="text-danger"></span>
+        </div>
+        <div class="row">
+
+            <div class="form-group col-6">
+                <label asp-for="InquirySchedule.StartDate"></label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                    </div>
+                    <input asp-for="InquirySchedule.StartDate" type="text" class="form-control date-mask" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" spellcheck="false">
+                </div>
+                <span asp-validation-for="InquirySchedule.StartDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group col-6">
+                <label asp-for="InquirySchedule.EndDate"></label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                    </div>
+                    <input asp-for="InquirySchedule.EndDate" type="text" class="form-control date-mask" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" spellcheck="false">
+                </div>
+                <span asp-validation-for="InquirySchedule.EndDate" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <partial name="../Shared/Components/Toolbars/_BtnSaveCancelSummaryClinical.cshtml" />
+    </div>
+</form>

@@ -1,0 +1,25 @@
+﻿<li class="nav-item">
+    <a class="nav-link @Url.ActiveClass("Home","Index")" asp-area="" asp-controller="Home" asp-action="Index">
+        <i class="nav-icon fas fas fa-home"></i>
+        <p>@LocalizerGeneral["Home"]</p>
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link @Url.ActiveClass("Inquiries","PatientInquiries")" asp-area="" asp-controller="Inquiries" asp-action="PatientInquiries">
+        <i class="nav-icon fas fa-list"></i>
+        <p>@LocalizerGeneral["Inquéritos"]</p>
+    </a>
+</li>
+
+<li class="nav-item">
+    <a class="nav-link @Url.ActiveClass("CarePlans","PatientCarePlans")" asp-area="" asp-controller="CarePlans" asp-action="PatientCarePlans">
+        <i class="nav-icon fas fa-book-medical"></i>
+        <p>@LocalizerGeneral["Plano de Cuidados"]</p>
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link @Url.ActiveClass("Messages","PatientMessages")" asp-area="" asp-controller="Messages" asp-action="PatientMessages">
+        <i class="nav-icon fas fa-comments"></i>
+        <p>@LocalizerGeneral["Mensagens"]</p>
+    </a>
+</li>

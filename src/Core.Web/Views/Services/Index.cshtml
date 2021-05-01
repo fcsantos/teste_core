@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ServiceViewModel>
+
+@{
+    ViewData["Title"] = Localizer["Serviços"];
+    Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+}
+
+<a asp-controller="Services" asp-action="Create" class="btn btn-primary float-md-right"> @Localizer["Novo Serviço"] <i class="fa fa-chevron-right"></i></a>
+<br />
+<br />
+<br />
+<br />
+<section class="padding-y">
+    @if (Model.Any())
+    {
+        <table id="table" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>@Localizer["Serviço"]</th>
+                    <th>@Localizer["Médico Chefe"]</th>
+                    <th>@Localizer["Ativo"]</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var service in Model)
+                {
+                    <tr>
+                        <td width="40%">@service.ServiceName</td>
+                        <td width="40%">@service.DoctorName</td>
+                        <td width="5%"><span class="@((service.IsActive.Value) ? "badge badge-success" : "badge badge-danger")">@service.Ativo</span></td>
+                        <td width="15%" class="text-center py-0 align-middle">
+                            <div class="btn-group btn-group-sm">
+                                <a class="btn bg-blue" asp-controller="Services" asp-action="Edit" asp-route-id="@service.Id" data-toggle="tooltip" data-placement="right" title="@LocalizerGeneral["Editar"]"><i class="fas fa-edit"></i></a>&nbsp&nbsp
+                                @if (service.IsActive.Value)
+                                {
+
+                                    <button id="Delete" value="Services" name="@service.Id" class="btn bg-danger" type="button" data-toggle="tooltip" data-placement="right" title="@LocalizerGeneral["Inativar"]"><i class="far fa-minus-square"></i></button>
+                                }
+                                else
+                                {
+                                    <button id="Delete" value="Services" name="@service.Id" class="btn bg-success" type="button" data-toggle="tooltip" data-placement="right" title="@LocalizerGeneral["Ativar"]"><i class="far fa-check-square"></i></button>
+                                }
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p style="font-style:italic">@Localizer["Não existe nenhum Serviço registado"]</p>
+    }
+</section>

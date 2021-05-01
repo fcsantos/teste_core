@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20210325100344_Initial.cs" />
+    <Compile Remove="Migrations\20210325100344_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210325171446_Initial.cs" />
+    <Compile Remove="Migrations\20210325171446_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210325184045_Initial.cs" />
+    <Compile Remove="Migrations\20210325184045_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210331170703_Servicos.cs" />
+    <Compile Remove="Migrations\20210331170703_Servicos.Designer.cs" />
+    <Compile Remove="Migrations\20210405102629_NoteToNotice.cs" />
+    <Compile Remove="Migrations\20210405102629_NoteToNotice.Designer.cs" />
+    <Compile Remove="Migrations\20210405103514_Notices.cs" />
+    <Compile Remove="Migrations\20210405103514_Notices.Designer.cs" />
+    <Compile Remove="Migrations\20210408231955_Initial.cs" />
+    <Compile Remove="Migrations\20210408231955_Initial.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.78" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Business\Core.Business.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
+</Project>

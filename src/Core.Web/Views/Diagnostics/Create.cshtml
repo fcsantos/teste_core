@@ -1,0 +1,41 @@
+﻿@model SummaryClinicalDetailViewModel
+
+<form asp-action="Create" asp-controller="Diagnostics" id="form-id-diagnostic">
+    <div class="card-body col-md-12">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @Html.HiddenFor(model => model.Diagnostic.PatientId)
+        @Html.HiddenFor(model => model.CloneId, new { @id = "cloneId_diagnostic" })
+        <input type="hidden" asp-for="Facilitator.TypeClinicalSummary" value="Diagnostic">
+        <div class="form-group">
+            <label asp-for="Diagnostic.ClinicalSummaryFacilitator" class="control-label"></label>
+            <select class="form-control" asp-for="Diagnostic.ClinicalSummaryFacilitator" asp-items="ViewBag.SelectListFacilitatorDiagnostic">
+                <option value="">-- @LocalizerGeneral["Selecione"] --</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <div class="custom-control custom-switch">
+                <input type="checkbox" asp-for="IsNewFacilitator" class="custom-control-input" id="isnewfacilitator_diagnostic">
+                <label class="custom-control-label" for="isnewfacilitator_diagnostic">@Localizer["Você quer guardar as informacoes como facilitador de preenchimento?"]</label>
+            </div>
+        </div>
+        <div id="facilitator-pathology-diagnostic" class="form-group">
+            <label asp-for="Facilitator.PathologyId" class="control-label"></label>
+            <select class="form-control" asp-for="Facilitator.PathologyId" asp-items="ViewBag.SelectListPathologies">
+                <option value="">-- @LocalizerGeneral["Selecione"] --</option>
+            </select>
+        </div>
+        <div id="facilitator-name-diagnostic" class="form-group">
+            <label asp-for="Facilitator.Name" class="control-label"></label>
+            <input asp-for="Facilitator.Name" class="form-control" />
+            <span asp-validation-for="Facilitator.Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Diagnostic.Description" class="control-label"></label>
+            <textarea asp-for="Diagnostic.Description" class="form-control" rows="3"></textarea>
+            <span asp-validation-for="Diagnostic.Description" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="card-footer">
+        <partial name="../Shared/Components/Toolbars/_BtnSaveCancelSummaryClinical.cshtml" />
+    </div>
+</form>

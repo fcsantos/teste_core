@@ -1,0 +1,113 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DebugType>portable</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+		<OutputPath>C:\temp\</OutputPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="View\AjudaTabbPage.xaml.cs" />
+		<Compile Remove="View\HomePage.xaml.cs" />
+		<Compile Remove="View\InqueritosTabbPage.xaml.cs" />
+		<Compile Remove="View\MensagensTabbPage.xaml.cs" />
+		<Compile Remove="View\PlanoCuidadosTabbPage.xaml.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Remove="View\AjudaTabbPage.xaml" />
+		<EmbeddedResource Remove="View\HomePage.xaml" />
+		<EmbeddedResource Remove="View\InqueritosTabbPage.xaml" />
+		<EmbeddedResource Remove="View\MensagensTabbPage.xaml" />
+		<EmbeddedResource Remove="View\PlanoCuidadosTabbPage.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Include="App.xaml.cs" />
+		<Compile Include="AssemblyInfo.cs" />
+		<Compile Include="MainPage.xaml.cs" />
+		<Compile Include="obj\Debug\netstandard2.0\.NETStandard,Version=v2.0.AssemblyAttributes.cs" />
+		<Compile Include="obj\Debug\netstandard2.0\App.xaml.g.cs" />
+		<Compile Include="obj\Debug\netstandard2.0\MainPage.xaml.g.cs" />
+		<Compile Include="obj\Debug\netstandard2.0\ProjetoMRP.Paciente.AssemblyInfo.cs" />
+		<Compile Include="obj\Debug\netstandard2.0\View\AjudaPage.xaml.g.cs" />
+		<Compile Include="obj\Debug\netstandard2.0\View\css\ajuda.css.g.cs" />
+		<Compile Include="obj\Debug\netstandard2.0\View\Home.xaml.g.cs" />
+		<Compile Include="obj\Debug\netstandard2.0\View\InqueritosPage.xaml.g.cs" />
+		<Compile Include="obj\Debug\netstandard2.0\View\LoginPage.xaml.g.cs" />
+		<Compile Include="obj\Debug\netstandard2.0\View\MensagemPage.xaml.g.cs" />
+		<Compile Include="obj\Debug\netstandard2.0\View\PlanoCuidados.xaml.g.cs" />
+		<Compile Include="obj\Debug\netstandard2.0\View\RespostaPage.xaml.g.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="bin\Debug\netstandard2.0\ProjetoMRP.Paciente.deps.json" />
+		<Content Include="obj\Debug\netstandard2.0\ProjetoMRP.Paciente.csproj.FileListAbsolute.txt" />
+		<Content Include="obj\project.assets.json" />
+		<Content Include="obj\ProjetoMRP.Paciente.csproj.nuget.dgspec.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="bin\Debug\netstandard2.0\ProjetoMRP.Paciente.dll" />
+		<None Include="bin\Debug\netstandard2.0\ProjetoMRP.Paciente.pdb" />
+		<None Include="bin\Debug\netstandard2.0\ref\ProjetoMRP.Paciente.dll" />
+		<None Include="obj\Debug\netstandard2.0\ProjetoMRP.Paciente.AssemblyInfoInputs.cache" />
+		<None Include="obj\Debug\netstandard2.0\ProjetoMRP.Paciente.assets.cache" />
+		<None Include="obj\Debug\netstandard2.0\ProjetoMRP.Paciente.csproj.CoreCompileInputs.cache" />
+		<None Include="obj\Debug\netstandard2.0\ProjetoMRP.Paciente.csprojAssemblyReference.cache" />
+		<None Include="obj\Debug\netstandard2.0\ProjetoMRP.Paciente.dll" />
+		<None Include="obj\Debug\netstandard2.0\ProjetoMRP.Paciente.pdb" />
+		<None Include="obj\Debug\netstandard2.0\ref\ProjetoMRP.Paciente.dll" />
+		<None Include="obj\Debug\netstandard2.0\XamlC.stamp" />
+		<None Include="obj\project.nuget.cache" />
+		<None Include="obj\ProjetoMRP.Paciente.csproj.nuget.g.props" />
+		<None Include="obj\ProjetoMRP.Paciente.csproj.nuget.g.targets" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Autofac" Version="4.6.1" />
+		<PackageReference Include="Autofac.Extras.CommonServiceLocator" Version="4.1.0" />
+		<PackageReference Include="IdentityModel" Version="5.1.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.DataAnnotations" Version="2.2.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+		<PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.10.1" />
+		<PackageReference Include="System.Text.Json" Version="5.0.2" />
+		<PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />
+		<PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="View\AjudaPage.xaml">
+			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="View\Home.xaml">
+			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="View\InqueritoFormPage.xaml">
+			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="View\InqueritosPage.xaml">
+			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="View\LoginPage.xaml">
+			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="View\MensagemPage.xaml">
+			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="View\PlanoCuidados.xaml">
+			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+		<EmbeddedResource Update="View\RespostaPage.xaml">
+			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+	</ItemGroup>
+</Project>

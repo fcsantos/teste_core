@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProjetoMRP.Paciente.MainPage" BackgroundColor="White">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Icon="usuario_28.png" Priority="0" Clicked="ShowUserProfile"></ToolbarItem>
+        <ToolbarItem Icon="sino_28.png" Priority="1" ></ToolbarItem>
+        <ToolbarItem Icon="config_28.png" Priority="2" ></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="1"></RowDefinition>
+            <RowDefinition Height="66"></RowDefinition>
+        </Grid.RowDefinitions>
+        <ContentView x:Name="PlaceHolder" Grid.Row="0"></ContentView>
+        <BoxView BackgroundColor="#DCDCDC" Grid.Row="1"></BoxView>
+
+        <Grid ColumnSpacing="0" RowSpacing="0" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Spacing="0" Grid.Column="0" BackgroundColor="AliceBlue">
+                <Image HeightRequest="35" Source="HealthCare_40.png"></Image>
+                <Label Text="PlanoCuidados" FontSize="12" HorizontalOptions="Center"></Label>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Icon1_Tapped"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <StackLayout Spacing="0" Grid.Column="1" BackgroundColor="AliceBlue">
+                <Image HeightRequest="35" Source="Inquerito_40.png"></Image>
+                <Label Text="Inqueritos" FontSize="12" HorizontalOptions="Center"></Label>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Icon2_Tapped"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <StackLayout Spacing="0" Grid.Column="2" BackgroundColor="AliceBlue">
+                <Image HeightRequest="58" Source="Home_40.png"></Image>
+                <Label FontSize="12" HorizontalOptions="Center"></Label>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Icon3_Tapped"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <StackLayout Spacing="0" Grid.Column="3" BackgroundColor="AliceBlue">
+                <Image HeightRequest="35" Source="Mensagens_40.png"></Image>
+                <Label Text="Mensagens" FontSize="12" HorizontalOptions="Center"></Label>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Icon4_Tapped"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+            <StackLayout Spacing="0" Grid.Column="4" BackgroundColor="AliceBlue">
+                <Image HeightRequest="35" Source="Ajuda_40.png"></Image>
+                <Label Text="Ajuda" FontSize="12" HorizontalOptions="Center"></Label>
+                <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Icon5_Tapped"></TapGestureRecognizer>
+                </StackLayout.GestureRecognizers>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

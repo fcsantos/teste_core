@@ -1,0 +1,10 @@
+﻿<form method="get" asp-action="Index" class="search">
+    <div class="input-group">
+        <input type="text" id="q" name="q" class="form-control" value="@ViewBag.Pesquisa" placeholder="@LocalizerGeneral["O que você está procurando?"]">
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+    </div>
+</form>
