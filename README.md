@@ -1,4 +1,4 @@
-# Lusodata MRP
+# nome_projeto
 
 ## Ao fazer o clone do projeto:
 
